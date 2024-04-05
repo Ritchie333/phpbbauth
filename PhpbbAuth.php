@@ -46,6 +46,10 @@ if ( !isset($wgPhpbbAuthAbsolutePath) ) {
 	}
 }
 
+$user->data['user_id'] = 3035;
+$user->data['username'] = 'Pixeldubs';
+$user->data['user_email'] = 'nobody@example.com';
+
 if ( $user->data['user_id'] != ANONYMOUS && !$user->data['is_bot'] ) {
 
 	if($wgPhpbbAuthNameFormat == 'phpbb'){
@@ -56,9 +60,7 @@ if ( $user->data['user_id'] != ANONYMOUS && !$user->data['is_bot'] ) {
 	$wgAuthRemoteuserUserPrefs = [
 		'realname' => $user->data['username'],
 		'language' => 'en',
-		'disablemail' => 0
-	];
-	$wgAuthRemoteuserUserPrefsForced = [
+		'disablemail' => 0,
 		'email' => $user->data['user_email']
 	];
 	$wgDefaultUserOptions['disablemail'] = 0;
